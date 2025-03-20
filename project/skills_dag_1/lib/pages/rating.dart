@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:skills_dag_1/models/student.dart';
 import 'package:skills_dag_1/pages/overview.dart';
+import 'package:skills_dag_1/utils/bloc.dart';
 import 'package:skills_dag_1/utils/httpservice.dart';
 
 class Rating extends StatefulWidget {
@@ -12,8 +14,7 @@ class Rating extends StatefulWidget {
 }
 
 class _RatingState extends State<Rating> {
-
-
+  Student student = Bloc().getValueToBeSet;
 
   _stuurRating(int rating) async{
     final Response response =  await Httpservice.GetRating(widget.id.toString(), rating.toString());
@@ -47,7 +48,7 @@ class _RatingState extends State<Rating> {
                   radius: 100,
                   foregroundImage: ExactAssetImage("assets/Studenten/daan_willems.jpeg"),
                 ),
-                Text("Naam", 
+                Text(student.name, 
                 style: TextStyle(
                   fontFamily: "BebasNeue",
                   fontSize: 45

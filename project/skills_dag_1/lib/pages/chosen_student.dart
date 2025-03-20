@@ -6,6 +6,7 @@ import 'package:skills_dag_1/models/callResponse.dart';
 import 'package:skills_dag_1/models/student.dart';
 import 'package:skills_dag_1/pages/arrival.dart';
 import 'package:skills_dag_1/pages/sign_in.dart';
+import 'package:skills_dag_1/utils/bloc.dart';
 import 'package:skills_dag_1/utils/httpservice.dart';
 
 class ChosenStudent extends StatefulWidget {
@@ -17,7 +18,7 @@ class ChosenStudent extends StatefulWidget {
 }
 
 class _ChosenStudentState extends State<ChosenStudent> {
-
+  final Bloc bloc = Bloc();
   late Student student;
   TextEditingController controller = TextEditingController();
   @override
@@ -25,6 +26,8 @@ class _ChosenStudentState extends State<ChosenStudent> {
     // TODO: implement initState
     super.initState();
     student = Student.FromJson(jsonDecode(widget.student));
+    bloc.setValue(student);
+    
   }
     
 
@@ -90,7 +93,7 @@ class _ChosenStudentState extends State<ChosenStudent> {
                     print(response.body);
                     final data = jsonDecode(response.body);
                     final call = Callresponse.FromJson(data);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ArrivalPage(minuten: call.minutes, msg: call.msg ?? 'veld is required', id: student.id,)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ArrivalPage(minuten: call.minutes, msg: "message ${call.msg}", id: student.id,)));
                   },
                   style: ButtonStyle(
                     padding: WidgetStatePropertyAll(EdgeInsets.all(24)),

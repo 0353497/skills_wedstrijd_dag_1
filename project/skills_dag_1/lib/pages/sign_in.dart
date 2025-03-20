@@ -132,15 +132,4 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   );
 
-  // DropdownButton<dynamic> dropdown() {
-  //   return DropdownButton(
-  //   value: dropdownvalue,
-  //   items: vakwedstrijden,
-  //   onChanged: (value) {
-  //     setState(() {
-  //       dropdownvalue = value;
-  //     });
-  //   }
-  //   );
-  //}
 }

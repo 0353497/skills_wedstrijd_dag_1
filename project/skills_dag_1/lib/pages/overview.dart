@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skills_dag_1/components/dropdown.dart';
 import 'package:skills_dag_1/pages/chosen_student.dart';
+import 'package:skills_dag_1/utils/bloc.dart';
 import 'package:skills_dag_1/utils/httpservice.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,6 +18,10 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
   }
+  bool hasSetDropdown = Bloc().getHasSetDropdown;
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 OwnDropdown(),
                 SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: (true) ? ElevatedButton(
                   onPressed: () async{
                     final response =  await Httpservice.sendPost("competitionNumber", "4.5");
                     print(response.body);
@@ -72,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w700
                     ),
                   ),
-                  ),
+                  ): SizedBox()
                   
                 )
               ],

@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:skills_dag_1/utils/bloc.dart';
 
 class OwnDropdown extends StatefulWidget {
   const OwnDropdown({super.key});
@@ -44,6 +45,10 @@ class _OwnDropdownState extends State<OwnDropdown> {
         onChanged: (String? value) {
           setState(() {
             dropdownValue = value!;
+            Bloc().setHasSetDropdown(true);
+            setState(() {
+              
+            });
           });
         },
         items:

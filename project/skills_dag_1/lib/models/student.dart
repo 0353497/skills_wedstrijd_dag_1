@@ -12,6 +12,9 @@ class Student {
       json["student"]["minuten"]
       );
   }
+  static Student empty() {
+    return Student("", "", 0, 0);
+  }
 }
 
 
