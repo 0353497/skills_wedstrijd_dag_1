@@ -21,15 +21,14 @@ class _ChosenStudentState extends State<ChosenStudent> {
   final Bloc bloc = Bloc();
   late Student student;
   TextEditingController controller = TextEditingController();
+  bool isLoading = false;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     student = Student.FromJson(jsonDecode(widget.student));
     bloc.setValue(student);
-    
   }
-    
 
   final image = Image.asset("Color.fromARGB(255, 41, 170, 226)");
   @override
@@ -41,7 +40,7 @@ class _ChosenStudentState extends State<ChosenStudent> {
         centerTitle: true,
         title: Text("Assistentie"),
       ),
-      body: Container(
+      body: (!isLoading)? Container(
         padding: EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -89,6 +88,10 @@ class _ChosenStudentState extends State<ChosenStudent> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
+                    if (controller.value.text.isEmpty) {
+                      return;
+                    }
+                    showLoading();
                     final Response response = await Httpservice.CallStudent(student.id.toString(), controller.value.text);
                     print(response.body);
                     final data = jsonDecode(response.body);
@@ -114,7 +117,15 @@ class _ChosenStudentState extends State<ChosenStudent> {
                 )
           ],
         ),
-      ),
+      ): Center(
+        child: CircularProgressIndicator(),
+      )
     );
+  }
+
+  void showLoading() {
+    return setState(() {
+                    isLoading = true;
+                  });
   }
 }

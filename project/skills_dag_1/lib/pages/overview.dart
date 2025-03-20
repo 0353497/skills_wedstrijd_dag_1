@@ -20,7 +20,13 @@ class _HomePageState extends State<HomePage> {
   }
   bool hasSetDropdown = Bloc().getHasSetDropdown;
 
+  bool isLoading = false;
 
+  _showIsLoading(){
+    setState(() {
+      isLoading = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +38,14 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
-      body: Expanded(
+      body:(!isLoading) ? Expanded(
         child: Image.asset(
           height: double.infinity,
           "assets/plattegronden/stf25-plattegrond.png",
           fit: BoxFit.cover,
         ),
+      ) : Center(
+        child: CircularProgressIndicator(),
       ),
       bottomSheet:  BottomSheet(onClosing: () {}, builder: (context) {
         return SizedBox(
@@ -57,6 +65,7 @@ class _HomePageState extends State<HomePage> {
                 width: double.infinity,
                 child: (true) ? ElevatedButton(
                   onPressed: () async{
+                    _showIsLoading();
                     final response =  await Httpservice.sendPost("competitionNumber", "4.5");
                     print(response.body);
                     final data = response.body;
