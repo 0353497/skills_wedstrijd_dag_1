@@ -19,7 +19,7 @@ class _RatingState extends State<Rating> {
   _stuurRating(int rating) async{
     final Response response =  await Httpservice.GetRating(widget.id.toString(), rating.toString());
     print(response.body);
-    Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+   // Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 
 

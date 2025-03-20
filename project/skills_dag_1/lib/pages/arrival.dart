@@ -54,9 +54,9 @@ class _ArrivalPageState extends State<ArrivalPage> {
                     height: 200,
                   ),
                 OwnTimer(minuten: widget.minuten, id: widget.id,),
-                ElevatedButton(onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>  Rating(id: widget.id,)));
-                }, child: Text("skip"))
+                // ElevatedButton(onPressed: () {
+                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>  Rating(id: widget.id,)));
+                // }, child: Text("skip"))
               ],
             ),
             //so it looks nice
