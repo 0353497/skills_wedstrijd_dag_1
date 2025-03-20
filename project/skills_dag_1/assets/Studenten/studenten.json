@@ -1,0 +1,40 @@
+{
+  "studenten": [
+    {
+      "id": 1,
+      "naam": "Lisa de Vries",
+      "foto": "images/lisa_de_vries.jpeg",
+      "minuten": 5
+    },
+    {
+      "id": 2,
+      "naam": "Mohammed El Khattabi",
+      "foto": "images/mohammed_el_khattabi.jpeg",
+      "minuten": 6
+    },
+    {
+      "id": 3,
+      "naam": "Sophie van Dam",
+      "foto": "images/sophie_van_dam.jpeg",
+      "minuten": 6
+    },
+    {
+      "id": 4,
+      "naam": "Carlos Rodríguez",
+      "foto": "images/carlos_rodriguez.jpeg",
+      "minuten": 9
+    },
+    {
+      "id": 5,
+      "naam": "Aisha Patel",
+      "foto": "images/aisha_patel.jpeg",
+      "minuten": 3
+    },
+    {
+      "id": 6,
+      "naam": "Daan Willems",
+      "foto": "images/daan_willems.jpeg",
+      "minuten": 4
+    }
+  ]
+}

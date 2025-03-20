@@ -1,0 +1,39 @@
+name: skills_dag_1
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_native_splash: ^2.4.5
+  http: ^1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  fonts:
+    - family: BebasNeue
+      fonts:
+        - asset: assets/fonts/BebasNeue.otf
+    - family: Frutiger
+      fonts:
+        - asset: assets/fonts/Frutiger LT Std/FrutigerLTStd-Roman.otf
+        - asset: assets/fonts/Frutiger LT Std/FrutigerLTStd-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Frutiger LT Std/FrutigerLTStd-Light.otf
+          weight: 400
+        - asset: assets/fonts/Frutiger LT Std/FrutigerLTStd-LightItalic.otf
+          weight: 400
+  uses-material-design: true
+  assets:
+  - assets/PNG/
+  - assets/Studenten/
+  - assets/plattegronden/stf25-plattegrond.png
+  
